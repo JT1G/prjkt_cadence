@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Syllabus & Task Planner | Cadence</title>
+  <meta name="description" content="Organize academic assignments, exam runways, and project milestones by priority weight.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Shared Dynamic Header -->
+  <header id="siteHeader" class="site-header"></header>
+
+  <main class="main-body container">
+    <div class="page-header">
+      <div class="header-titles">
+        <span class="view-eyebrow">Syllabus Execution</span>
+        <h1>Academic Assignment & Exam Runway</h1>
+        <p>Organize deadlines by priority weight, track completion rate, and eliminate deadline surprises.</p>
+      </div>
+    </div>
+
+    <div class="planner-layout">
+      <!-- Add Task Form -->
+      <div class="planner-sidebar">
+        <div class="planner-form-card">
+          <h3>Add Academic Task</h3>
+          <form id="taskForm">
+            <div class="form-group">
+              <label for="taskTitle">Task or Assignment Title</label>
+              <input type="text" id="taskTitle" placeholder="e.g. Physics Problem Set 4" required>
+            </div>
+            <div class="form-group">
+              <label for="taskCourse">Course / Subject</label>
+              <input type="text" id="taskCourse" placeholder="e.g. AP Physics C" required>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="taskDueDate">Target Due Date</label>
+                <input type="date" id="taskDueDate" required>
+              </div>
+              <div class="form-group">
+                <label for="taskPriority">Priority</label>
+                <select id="taskPriority">
+                  <option value="high">High (Exams / Projects)</option>
+                  <option value="medium" selected>Medium (Weekly problem sets)</option>
+                  <option value="low">Low (Supplemental reading)</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Add to Schedule</button>
+          </form>
+        </div>
+
+        <!-- Practical Student Rule -->
+        <div class="planner-callout">
+          <h4>The 3-3-3 Rule for Students</h4>
+          <p>Dedicate 3 hours to one primary cognitive subject, complete 3 urgent short tasks, and spend 30 minutes on maintenance or reading.</p>
+        </div>
+      </div>
+
+      <!-- Task List and Filters -->
+      <div class="planner-main">
+        <div class="planner-toolbar">
+          <div class="task-filter-group">
+            <button class="task-filter-btn active" data-task-filter="all">All (<span id="countAllTasks">0</span>)</button>
+            <button class="task-filter-btn" data-task-filter="pending">Pending (<span id="countPendingTasks">0</span>)</button>
+            <button class="task-filter-btn" data-task-filter="completed">Completed (<span id="countCompletedTasks">0</span>)</button>
+          </div>
+          <button id="clearCompletedBtn" class="btn-subtle-sm">Clear Completed</button>
+        </div>
+
+        <!-- Dynamic Tasks Container -->
+        <div class="tasks-list" id="tasksContainer" role="list">
+          <!-- Populated via app.js -->
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <div class="brand-symbol-sm" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+          </svg>
+        </div>
+        <span><strong>Cadence</strong> &mdash; Handcrafted educational workspace.</span>
+      </div>
+      <div class="footer-meta">
+        <span>Syllabus & Task Planner</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

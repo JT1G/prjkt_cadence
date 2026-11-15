@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exam Readiness Runway | Cadence</title>
+  <meta name="description" content="Calculate and pace your revision runway with precision study volume modeling and stepper controls.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Shared Dynamic Header -->
+  <header id="siteHeader" class="site-header"></header>
+
+  <main class="main-body container">
+    <div class="page-header">
+      <div class="header-titles">
+        <span class="view-eyebrow">Practical Pacing Instrument</span>
+        <h1>Exam Readiness Runway Calculator</h1>
+        <p>Model material volume, days remaining, and cognitive consolidation passes to establish an optimal daily study rhythm.</p>
+      </div>
+    </div>
+
+    <div class="runway-layout">
+      <!-- Calculator Input Panel -->
+      <div class="runway-card">
+        <h3>Runway Parameters</h3>
+        <p>Adjust chapters and remaining runway days using the stepper controls.</p>
+
+        <form id="runwayForm" class="runway-form" onsubmit="event.preventDefault();">
+          
+          <!-- Stepper 1: Chapters -->
+          <div class="stepper-field">
+            <div class="stepper-field-header">
+              <label class="stepper-label" for="calcChapters">Chapters or Lecture Modules</label>
+              <span class="stepper-hint">Units to master</span>
+            </div>
+            <div class="stepper-control">
+              <button type="button" class="stepper-btn stepper-btn-decrement" data-target="calcChapters" aria-label="Decrease chapters">&minus;</button>
+              <input type="number" id="calcChapters" class="stepper-input" min="1" max="100" value="8" aria-label="Chapters count">
+              <button type="button" class="stepper-btn stepper-btn-increment" data-target="calcChapters" aria-label="Increase chapters">&plus;</button>
+            </div>
+          </div>
+
+          <!-- Stepper 2: Days Remaining -->
+          <div class="stepper-field">
+            <div class="stepper-field-header">
+              <label class="stepper-label" for="calcDays">Days Until Exam</label>
+              <span class="stepper-hint">Calendar runway</span>
+            </div>
+            <div class="stepper-control">
+              <button type="button" class="stepper-btn stepper-btn-decrement" data-target="calcDays" aria-label="Decrease days">&minus;</button>
+              <input type="number" id="calcDays" class="stepper-input" min="1" max="180" value="14" aria-label="Days count">
+              <button type="button" class="stepper-btn stepper-btn-increment" data-target="calcDays" aria-label="Increase days">&plus;</button>
+            </div>
+          </div>
+
+          <!-- Revision Intensity Model -->
+          <div class="stepper-field">
+            <label class="stepper-label" for="calcRetentionMode">Revision Intensity Model</label>
+            <select id="calcRetentionMode" class="runway-select">
+              <option value="deep" selected>Deep Mastery (Spaced 3-pass review - 90%+ retention)</option>
+              <option value="standard">Standard (Single thorough review)</option>
+              <option value="cram">Rapid Review (Key formulas & definitions only)</option>
+            </select>
+          </div>
+
+          <button type="button" id="runCalculationBtn" class="btn btn-primary btn-block">Compute Revision Cadence</button>
+        </form>
+      </div>
+
+      <!-- Runway Projection Board -->
+      <div class="runway-card">
+        <h3>Calculated Study Rhythm</h3>
+        <p>Recommended cadence based on cognitive decay curves and deliberate recall intervals.</p>
+
+        <div class="runway-result-board">
+          <div class="runway-metric-hero">
+            <span id="runwayHeroNum" class="runway-hero-num">1.7 chapters / day</span>
+            <span class="runway-hero-sub">Paced daily target</span>
+          </div>
+
+          <div class="runway-breakdown-grid">
+            <div class="breakdown-box">
+              <strong id="runwayDailyMinutes">75 mins</strong>
+              <span>Daily focus time</span>
+            </div>
+            <div class="breakdown-box">
+              <strong id="runwayTotalHours">17.5 hrs</strong>
+              <span>Total runway effort</span>
+            </div>
+            <div class="breakdown-box">
+              <strong id="runwayPassesCount">3 passes</strong>
+              <span>Spaced retrieval cycles</span>
+            </div>
+            <div class="breakdown-box">
+              <strong id="runwayConfidenceLevel">High</strong>
+              <span>Projected recall strength</span>
+            </div>
+          </div>
+
+          <div class="runway-insights-box" id="runwayInsightNote">
+            At 45 mins per chapter, commit to 75 minutes of daily focused study across 14 days to achieve robust conceptual consolidation before exam day.
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <div class="brand-symbol-sm" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+          </svg>
+        </div>
+        <span><strong>Cadence</strong> &mdash; Handcrafted educational workspace.</span>
+      </div>
+      <div class="footer-meta">
+        <span>Exam Readiness Runway</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
