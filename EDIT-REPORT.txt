@@ -1,0 +1,51 @@
+CADENCE WEBSITE — EDIT REPORT
+Date: November 18, 2026
+Project folder: C:\Users\aplkh\OneDrive\Desktop\files
+
+SUMMARY
+Fixed the broken relative file paths in index.html so the page can load the project files from their actual locations. The project files are stored together in one flat folder, not in assets, css, or js subfolders.
+
+CHANGES MADE TO index.html
+1. Line 6 — Favicon
+   Before: assets/favicon.svg
+   After:  favicon.svg
+   Reason: favicon.svg is in the same folder as index.html.
+
+2. Line 7 — Stylesheet
+   Before: css/style.css
+   After:  style.css
+   Reason: style.css is in the same folder as index.html. The old path prevented the design from loading.
+
+3. Line 12 — Main logo
+   Before: assets/cadence-logo.svg
+   After:  cadence-logo.svg
+   Reason: cadence-logo.svg is in the same folder as index.html.
+
+4. Line 12 — Compact logo / symbol
+   Before: assets/favicon.svg
+   After:  favicon.svg
+   Reason: favicon.svg is in the same folder as index.html.
+
+5. Line 26 — Sample data script
+   Before: js/data.js
+   After:  data.js
+   Reason: data.js is in the same folder as index.html.
+
+6. Line 27 — Storage script
+   Before: js/storage.js
+   After:  storage.js
+   Reason: storage.js is in the same folder as index.html.
+
+7. Line 28 — Main application script
+   Before: js/app.js
+   After:  app.js
+   Reason: app.js is in the same folder as index.html.
+
+DEMO CONTENT
+The sample student name, assignments, courses, events, notes, flashcards, quizzes, and study history are demo data supplied by the project. They were not changed. The existing “Reset demo data” control is part of the site; it was not changed.
+
+VERIFICATION
+- Confirmed all seven referenced local files exist in the project folder.
+- JavaScript syntax checks passed for app.js, data.js, and storage.js.
+- The user reopened the page and confirmed that the site is now working.
+- No project files other than index.html were edited for the path fix. This report is the only additional file created.
