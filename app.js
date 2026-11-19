@@ -2,6 +2,23 @@
 (() => {
 'use strict';
 const $ = (s, r = document) => r.querySelector(s);
+const themeToggle = $('#theme-toggle');
+function applyTheme(theme, persist = false) {
+  const value = theme === 'dark' ? 'dark' : 'light';
+  document.documentElement.dataset.theme = value;
+  document.documentElement.style.colorScheme = value;
+  themeToggle?.setAttribute('aria-pressed', String(value === 'dark'));
+  themeToggle?.setAttribute('aria-label', `Switch to ${value === 'dark' ? 'light' : 'dark'} mode`);
+  $('#theme-label')?.replaceChildren(document.createTextNode(value === 'dark' ? 'Light mode' : 'Dark mode'));
+  if (persist) { try { localStorage.setItem('cadence-theme', value); } catch {} }
+}
+themeToggle?.addEventListener('click', () => applyTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark', true));
+const themePreference = matchMedia('(prefers-color-scheme: dark)');
+themePreference.addEventListener?.('change', event => {
+  let saved; try { saved = localStorage.getItem('cadence-theme'); } catch {}
+  if (saved !== 'light' && saved !== 'dark') applyTheme(event.matches ? 'dark' : 'light');
+});
+applyTheme(document.documentElement.dataset.theme);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const fd = s => new Date(s + 'T00:00').toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
 
